@@ -1,7 +1,9 @@
+import HomePage from "../pages/home";
+
 export const routesForPublic = [
   {
     path: "/",
-    element: <div>Home page</div>,
+    element: <HomePage />,
   },
   {
     path: "/about-us",

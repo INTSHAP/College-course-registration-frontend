@@ -9,7 +9,9 @@ import Form from "../../ui/form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useLoginUser } from "../../../services/auth.hooks";
 
-export default function LoginForm() {
+interface FormProps extends React.HTMLAttributes<HTMLElement> {}
+
+export default function LoginForm({ className }: FormProps) {
   const { mutate, isPending } = useLoginUser();
   const {
     formState: { errors, isValid },
@@ -24,7 +26,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)} className={className}>
       <FormInputField
         name="email"
         label="Email"
