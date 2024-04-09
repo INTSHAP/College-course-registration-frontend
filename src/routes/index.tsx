@@ -1,3 +1,4 @@
+import { NavbarWrapper } from "../components/ui/nav/nav-bar";
 import { useAuth } from "../context/auth-context";
 import { AuthContextType } from "../types/auth/login.types";
 import { routesForAuthenticatedOnly } from "./protected-routes";
@@ -11,9 +12,15 @@ const Routes = () => {
 
   // merge all routes
   const router = createBrowserRouter([
-    ...routesForPublic,
-    ...(!token ? routesForNotAuthenticatedOnly : []),
-    ...routesForAuthenticatedOnly,
+    {
+      path: "/",
+      element: <NavbarWrapper />,
+      children: [
+        ...routesForPublic,
+        ...(!token ? routesForNotAuthenticatedOnly : []),
+        ...routesForAuthenticatedOnly,
+      ],
+    },
   ]);
 
   // Provide the router configuration using RouterProvider

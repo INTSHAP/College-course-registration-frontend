@@ -1,5 +1,12 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { LoginResponseUser, AuthContextType } from "../types/auth/login.types";
 import {
   getTokenCookie,
@@ -23,13 +30,21 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setToken_(newToken);
   };
   // Function to set the authentication user
-  const setUser = (newUser: LoginResponseUser) => {
+  const setUser = (newUser: LoginResponseUser | null) => {
     setUser_(newUser);
   };
 
   const setExpires = (newExpires: string) => {
     setExpires_(newExpires);
   };
+
+  // clear user, token
+  const logout = useCallback(() => {
+    setToken("");
+    setUser(null);
+    removeTokenCookie();
+    removeUserCookie();
+  }, []);
 
   useEffect(() => {
     if (token) {
@@ -42,7 +57,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       removeTokenCookie();
       removeUserCookie();
     }
-  }, [token, expires, user]);
+  }, [token, expires, user, logout]);
 
   // Memoized value of the authentication context
   const contextValue = useMemo(
@@ -52,8 +67,9 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setToken,
       setUser,
       setExpires,
+      logout,
     }),
-    [token, user],
+    [token, user, logout],
   );
 
   // Provide the authentication context to the children components
