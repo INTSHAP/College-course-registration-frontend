@@ -44,6 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
       className={cn(buttonVariants({ variant, size, className }))}
     >
+      {props.children}
       {text}
     </button>
   );

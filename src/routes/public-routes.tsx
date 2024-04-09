@@ -9,4 +9,8 @@ export const routesForPublic = [
     path: "/about-us",
     element: <div>About Us</div>,
   },
+  {
+    path: "/courses",
+    element: <div>Courses</div>,
+  },
 ];

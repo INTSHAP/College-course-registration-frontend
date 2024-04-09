@@ -29,6 +29,7 @@ export interface AuthContextType {
   token: string | null;
   user: LoginResponseUser | null;
   setToken: (newToken: string) => void;
-  setUser: (newUser: LoginResponseUser) => void;
+  setUser: (newUser: LoginResponseUser | null) => void;
   setExpires: (newExpire: string) => void;
+  logout: () => void;
 }
