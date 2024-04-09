@@ -11,10 +11,12 @@ export default {
       colors: {
         primary: "#0000ff",
         secondary: "#ffffff",
+        dark: "#000000",
       },
       backgroundColor: {
         primary: "#0000ff",
         secondary: "#ffffff",
+        dark: "#000000",
       },
     },
   },
