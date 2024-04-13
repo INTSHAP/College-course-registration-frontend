@@ -3,16 +3,19 @@ import LoginForm from "./login";
 import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "../../../context/auth-context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AxiosProvider from "../../../context/axios-context";
 
 test("login form render correctly", () => {
   const client = new QueryClient();
   render(
     <AuthProvider>
-      <QueryClientProvider client={client}>
-        <BrowserRouter>
-          <LoginForm />
-        </BrowserRouter>
-      </QueryClientProvider>
+      <AxiosProvider>
+        <QueryClientProvider client={client}>
+          <BrowserRouter>
+            <LoginForm />
+          </BrowserRouter>
+        </QueryClientProvider>
+      </AxiosProvider>
     </AuthProvider>,
   );
   const emailInputElement = screen.getByPlaceholderText("Enter your email");

@@ -1,5 +1,6 @@
 import { useAuth } from "../context/auth-context";
 import Dashboard from "../pages/dashboard";
+import StudentRegisterationPage from "../pages/student/register";
 import { AuthContextType } from "../types/auth/login.types";
 import { Navigate, Outlet } from "react-router-dom";
 
@@ -22,6 +23,10 @@ export const routesForAuthenticatedOnly = [
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/student",
+        element: <StudentRegisterationPage />,
       },
     ],
   },
