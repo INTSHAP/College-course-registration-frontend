@@ -62,7 +62,7 @@ export default function CourseRegistrationForm() {
   const proceedToPayment = () => {
     console.log(selectedCourses_);
     if (!selectedCourses_) return;
-    navigate("/course-checkout");
+    navigate("/course-payment");
   };
 
   const isChecked = watch("courses");
@@ -105,7 +105,6 @@ export default function CourseRegistrationForm() {
   if (!data) return <h1>Invalid faculty data</h1>;
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className="w-full md:w-full">
-      <p>{getValues("courses")}</p>
       {loadingCourses ? (
         <h1>Loading courses</h1>
       ) : coursesData?.courses?.length === 0 ? (
@@ -113,7 +112,7 @@ export default function CourseRegistrationForm() {
       ) : (
         <div className="w-full flex flex-col gap-3 md:w-2/3">
           <h3>Courses</h3>
-          <CourseHeading />
+          <CourseHeading className="bg-black text-white" />
           {coursesData?.courses?.map((course) => {
             return (
               <CheckBoxFieldWrapper key={course._id}>

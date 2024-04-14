@@ -8,8 +8,12 @@ export interface StudentRegistration {
   _id: string;
   semester: string;
   level: number;
-  faculty: string;
-  department: string;
+  faculty: {
+    name: string;
+  };
+  department: {
+    name: string;
+  };
 }
 export interface LoginResponseUser {
   role: string;
