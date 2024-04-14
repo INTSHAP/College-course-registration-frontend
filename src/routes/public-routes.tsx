@@ -1,3 +1,4 @@
+import CoursePage from "../pages/course";
 import HomePage from "../pages/home";
 
 export const routesForPublic = [
@@ -11,6 +12,6 @@ export const routesForPublic = [
   },
   {
     path: "/courses",
-    element: <div>Courses</div>,
+    element: <CoursePage />,
   },
 ];

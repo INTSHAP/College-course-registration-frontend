@@ -1,3 +1,5 @@
+import { CourseType } from "../course/index.types";
+
 export interface FacultyType {
   name: string;
   createdAt: string;
@@ -5,11 +7,13 @@ export interface FacultyType {
   _id: string;
   __v: number;
   departments: Department[];
+  courses: CourseType[];
 }
 
-interface Department {
+export interface Department {
   _id: string;
   name: string;
+  courses?: CourseType[];
 }
 
 export interface FacultyResponseType {
