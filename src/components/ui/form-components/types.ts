@@ -35,3 +35,25 @@ export type ValidFieldNames =
   | "confirmPassword";
 
 export type ValidFieldTypes = "text" | "number" | "password";
+
+interface OptionType {
+  label: string;
+  value: string | string[] | number;
+}
+
+export interface SelectProps
+  extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  options: OptionType[];
+}
+
+export interface FormSelectFieldProps {
+  name: string;
+  valueAsNumber?: boolean;
+  register: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
+  error: FieldError;
+  placeholder: string;
+  label: string;
+  multiple?: boolean;
+  defaultValue: string | string[] | number;
+  options: OptionType[];
+}

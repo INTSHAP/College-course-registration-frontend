@@ -1,4 +1,3 @@
-import axios from "axios";
 import {
   createContext,
   useCallback,
@@ -48,12 +47,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
       // set cookies
       setTokenCookie(token, expires);
       setUserCookie(user, expires);
     } else {
-      delete axios.defaults.headers.common["Authorization"];
       removeTokenCookie();
       removeUserCookie();
     }

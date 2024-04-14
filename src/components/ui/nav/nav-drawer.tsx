@@ -27,7 +27,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
       />
       {user && (
         <div className="bg-primary rounded-md p-5 text-white">
-          Hi, {user?.name}
+          <h1>Hi, {user?.name}</h1>
         </div>
       )}
       <nav className="min-h-full w-full flex flex-col gap-3 p-5">

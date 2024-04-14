@@ -1,11 +1,12 @@
 import { useMutation } from "@tanstack/react-query";
-import { loginUser, registerUser } from "./api";
+import { useAuthFunctions } from "./api";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/auth-context";
 import { AuthContextType, LoginResponseType } from "../types/auth/login.types";
 
 export const useLoginUser = () => {
+  const { loginUser } = useAuthFunctions();
   const navigate = useNavigate();
   const { setToken, setUser, setExpires } = useAuth() as AuthContextType;
   return useMutation({
@@ -24,6 +25,7 @@ export const useLoginUser = () => {
 };
 
 export const useRegisterUser = () => {
+  const { registerUser } = useAuthFunctions();
   const navigate = useNavigate();
   return useMutation({
     mutationFn: registerUser,
