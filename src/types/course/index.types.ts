@@ -1,4 +1,4 @@
-export interface CourseProps {
+export interface CourseProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   code: string;
   status: string;
@@ -8,10 +8,12 @@ export interface CourseProps {
   htmlFor?: string;
 }
 
-export interface CourseFooterProps {
+export interface CourseFooterProps extends React.HTMLAttributes<HTMLElement> {
   totalFee: number;
   totalCreditUnit: number;
 }
+
+export interface CourseHeaderProps extends React.HTMLAttributes<HTMLElement> {}
 
 export interface CourseType {
   title: string;

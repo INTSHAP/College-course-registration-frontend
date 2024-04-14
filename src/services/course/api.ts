@@ -35,5 +35,16 @@ export const useGetCourseFunctions = () => {
           throw new Error(err.response?.data.message);
         });
     },
+    getRegisteredCourses: async () => {
+      return await axiosInstance
+        .get(`/course-registrations/${user?.registration._id}`)
+        .then((res: AxiosResponse<CourseRegistrationResponseType>) => {
+          console.log(res.data.registeredCourses);
+          return res.data;
+        })
+        .catch((err: RequestError) => {
+          throw new Error(err.response?.data.message);
+        });
+    },
   };
 };

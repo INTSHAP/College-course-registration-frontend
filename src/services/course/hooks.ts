@@ -29,3 +29,12 @@ export const useGetLevelSemesterCourses = () => {
     refetchOnWindowFocus: false,
   });
 };
+
+export const useGetStudentRegisteredCourses = () => {
+  const { getRegisteredCourses } = useGetCourseFunctions();
+  return useQuery({
+    queryKey: ["registered-courses"],
+    queryFn: getRegisteredCourses,
+    refetchOnWindowFocus: false,
+  });
+};

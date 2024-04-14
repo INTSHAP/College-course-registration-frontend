@@ -7,8 +7,16 @@ export interface CourseRegistrationFormData {
 
 export interface CourseRegistrationData extends CourseRegistrationFormData {}
 
-export interface CourseRegistrationResponseType {}
-
+export interface RegisteredCoursesGroup {
+  courses: CourseType[];
+  fee: number;
+  level: number;
+  semester: number;
+  student: string;
+}
+export interface CourseRegistrationResponseType {
+  registeredCourses: RegisteredCoursesGroup[];
+}
 export interface CourseContextType {
   courses: CourseType[];
   totalFee: number;
