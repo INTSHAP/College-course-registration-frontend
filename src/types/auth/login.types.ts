@@ -3,12 +3,21 @@ export interface LoginData {
   password: string;
 }
 
+export interface StudentRegistration {
+  user: string;
+  _id: string;
+  semester: string;
+  level: number;
+  faculty: string;
+  department: string;
+}
 export interface LoginResponseUser {
   role: string;
   isEMailVerified: boolean;
   email: string;
   id: string;
   name: string;
+  registration: StudentRegistration;
 }
 
 export interface LoginResponseType {

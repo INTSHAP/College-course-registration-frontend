@@ -1,5 +1,5 @@
 import cn from "../../../libs/styles";
-import React from "react";
+import React, { InputHTMLAttributes, ReactNode } from "react";
 import { FormFieldProps, FormSelectFieldProps, SelectProps } from "./types";
 
 export const FormInputField: React.FC<FormFieldProps> = ({
@@ -75,3 +75,27 @@ export const FormSelectInputField: React.FC<FormSelectFieldProps> = ({
     </div>
   );
 };
+
+interface CheckBoxProps extends InputHTMLAttributes<HTMLInputElement> {
+  children: ReactNode;
+}
+
+export const CheckBox = ({ className, children, ...rest }: CheckBoxProps) => {
+  return (
+    <label
+      className="w-full flex items-center justify-start relative bg-white"
+      htmlFor={rest.id}
+    >
+      <input className={cn(className, "")} type="checkbox" {...rest} />
+      {children}
+    </label>
+  );
+};
+
+export function CheckBoxFieldWrapper({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex justify-start items-center bg-white pl-2 md:pl-5">
+      {children}
+    </div>
+  );
+}
