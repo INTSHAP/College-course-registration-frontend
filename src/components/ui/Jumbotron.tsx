@@ -1,8 +1,8 @@
 import cn from "../../libs/styles";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
-import React, { useState } from "react";
+import React, { ReactElement, ReactNode, useState } from "react";
 
-interface JumbotronProps extends React.HTMLAttributes<HTMLElement> {
+interface JumbotronProps extends React.HTMLAttributes<ReactElement> {
   text: ReactNode;
 }
 
