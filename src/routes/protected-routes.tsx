@@ -1,8 +1,10 @@
 import { useAuth } from "../context/auth-context";
 import Dashboard from "../pages/dashboard";
-import StudentRegisterationPage from "../pages/student/register";
+import StudentRegistrationPage from "../pages/student/register";
 import { AuthContextType } from "../types/auth/login.types";
 import { Navigate, Outlet } from "react-router-dom";
+import CourseRegistrationPage from "../pages/course/register";
+import CourseRegistrationCheckoutPage from "../pages/course/checkout";
 
 const ProtectedRoute = () => {
   const { token } = useAuth() as AuthContextType;
@@ -26,7 +28,15 @@ export const routesForAuthenticatedOnly = [
       },
       {
         path: "/student",
-        element: <StudentRegisterationPage />,
+        element: <StudentRegistrationPage />,
+      },
+      {
+        path: "/course-register",
+        element: <CourseRegistrationPage />,
+      },
+      {
+        path: "/course-checkout",
+        element: <CourseRegistrationCheckoutPage />,
       },
     ],
   },

@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
 export type FormData = {
@@ -23,18 +24,22 @@ export interface FormFieldProps
   valueAsNumber?: boolean;
   register: UseFormRegister<any>; // eslint-disable-line @typescript-eslint/no-explicit-any
   error: FieldError;
-  placeholder: string;
-  label: string;
+  placeholder?: string;
+  label?: string;
 }
 
+export interface FormCheckboxFieldProps extends FormFieldProps {
+  children: ReactNode;
+}
 export type ValidFieldNames =
   | "email"
   | "password"
   | "firstname"
   | "lastname"
-  | "confirmPassword";
+  | "confirmPassword"
+  | "courses";
 
-export type ValidFieldTypes = "text" | "number" | "password";
+export type ValidFieldTypes = "text" | "number" | "password" | "checkbox";
 
 interface OptionType {
   label: string;
