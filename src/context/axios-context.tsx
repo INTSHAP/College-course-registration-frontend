@@ -4,16 +4,16 @@ import { AxiosContextType } from "../types/axios/index.types";
 import { useAuth } from "./auth-context";
 import { AuthContextType } from "../types/auth/login.types";
 
-const NODE_ENV = import.meta.env.NODE_ENV;
+// const NODE_ENV = import.meta.env.NODE_ENV;
 
-const base_api_url_dev = "http://localhost:3000/v1";
+// const base_api_url_dev = "http://localhost:3000/v1";
 const base_api_url_pro = "https://college-course-reg-system.onrender.com/v1";
 
 // export const LOGIN_URL = base_api_url + "/login";
 // export const SIGNUP_URL = base_api_url + "/signup";
 
-export const API_BASE_URL =
-  NODE_ENV === "production" ? base_api_url_pro : base_api_url_dev;
+export const API_BASE_URL = base_api_url_pro;
+// NODE_ENV === "production" ? base_api_url_pro : base_api_url_dev;
 
 const AxiosContext = createContext<AxiosContextType | null>(null);
 
