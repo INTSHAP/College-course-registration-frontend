@@ -1,5 +1,5 @@
+import { Link } from "react-router-dom";
 import featuredBook from "../../../images/book.png";
-import { Button } from "../button";
 
 const Featured: React.FC = () => {
   return (
@@ -7,7 +7,13 @@ const Featured: React.FC = () => {
       <img src={featuredBook} alt="book" width={300} height={300} />
       <div className="flex flex-col gap-5">
         <p>Browse through all courses ahead of time</p>
-        <Button text="View all courses" variant={"dark"} />
+        {/* <Button text="View all courses" variant={"dark"} /> */}
+        <Link
+          className="bg-black text-white rounded-md p-2 px-4"
+          to={"/courses"}
+        >
+          View all courses
+        </Link>
       </div>
     </div>
   );

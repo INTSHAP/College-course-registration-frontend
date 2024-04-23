@@ -10,13 +10,12 @@ import { Button } from "../components/ui/button";
 
 export default function Dashboard() {
   const { user } = useAuth() as AuthContextType;
-  const { data, isLoading, error } = useGetStudentRegisteredCourses();
-  const registeredCourses = data?.registeredCourses!; // eslint-disable-line @typescript-eslint/no-non-null-asserted-optional-chain
+  const { data, isLoading } = useGetStudentRegisteredCourses();
 
-  if (error) return <h1>Error occured</h1>;
   if (isLoading) return <h1>loading</h1>;
 
-  const RegisteredCourses = registeredCourses[0]?.courses ? (
+  const registeredCourses = data?.registeredCourses!; // eslint-disable-line @typescript-eslint/no-non-null-asserted-optional-chain
+  const RegisteredCourses = registeredCourses ? (
     <div className="w-full flex flex-col gap-3">
       <CourseHeading
         className="bg-primary text-white"

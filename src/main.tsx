@@ -7,20 +7,23 @@ import { Toaster } from "sonner";
 import AuthProvider from "./context/auth-context.tsx";
 import AxiosProvider from "./context/axios-context.tsx";
 import CourseProvider from "./context/course-context.tsx";
+import DrawerProvider from "./context/nav-context.tsx";
 
 const client = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={client}>
-      <AuthProvider>
-        <AxiosProvider>
-          <CourseProvider>
-            <Toaster richColors position="top-center" />
-            <App />
-          </CourseProvider>
-        </AxiosProvider>
-      </AuthProvider>
+      <DrawerProvider>
+        <AuthProvider>
+          <AxiosProvider>
+            <CourseProvider>
+              <Toaster richColors position="top-center" />
+              <App />
+            </CourseProvider>
+          </AxiosProvider>
+        </AuthProvider>
+      </DrawerProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 );

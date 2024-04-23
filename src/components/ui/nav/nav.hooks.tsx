@@ -14,7 +14,7 @@ export const useCreateNavLinks = () => {
     return [
       ...publicNavLinks,
       ...(!token ? unAuthenticatedOnlyNavLinks : []),
-      ...protectedNavLinks,
+      ...(token ? protectedNavLinks : []),
     ];
   }, [token]);
 };

@@ -18,7 +18,7 @@ const Routes = () => {
       children: [
         ...routesForPublic,
         ...(!token ? routesForNotAuthenticatedOnly : []),
-        ...routesForAuthenticatedOnly,
+        ...(token ? routesForAuthenticatedOnly : []),
       ],
     },
   ]);

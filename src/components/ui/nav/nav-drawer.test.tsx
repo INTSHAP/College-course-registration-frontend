@@ -12,7 +12,7 @@ test("Navigation drawer renders correctly", () => {
       <AxiosProvider>
         <QueryClientProvider client={client}>
           <BrowserRouter>
-            <NavDrawer setToggleDrawer={() => {}} />
+            <NavDrawer />
           </BrowserRouter>
         </QueryClientProvider>
       </AxiosProvider>
